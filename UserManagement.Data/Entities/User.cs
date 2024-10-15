@@ -14,5 +14,16 @@ namespace UserManagement.Data.Entities
         public string Password { get; set; }
         public DateTime DateJoined { get; set; }
         public DateTime DateLastUpdated { get; set; }
+        public static UserTransport ToUserTransport(User user)
+        {
+            return new UserTransport()
+            {
+                UserID = user.UserID,
+                UserEmail = user.UserEmail,
+                UserType = user.UserType,
+                DateLastUpdated = user.DateLastUpdated,
+                DateJoined = user.DateJoined,
+            };
+        }
     }
 }

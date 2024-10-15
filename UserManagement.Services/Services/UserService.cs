@@ -35,6 +35,7 @@ namespace UserManagement.Services.Services
            {
                 user.Password = PasswordHasher.HashPassword(user.Password);
            }
+
            return _userRepository.UpdateUser(user);
         }
     }

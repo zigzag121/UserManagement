@@ -11,6 +11,7 @@ builder.Services.AddDbContext<UserDbContext>(options =>
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -27,4 +28,6 @@ builder.Services.AddControllers();
 var app = builder.Build();
 app.UseCors("AllowAll");
 app.MapControllers();
+app.UseSwagger();
+app.UseSwaggerUI();
 app.Run();
